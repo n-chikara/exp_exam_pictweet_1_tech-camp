@@ -19,7 +19,7 @@ RSpec.describe 'ツイート投稿', type: :system do
       # 投稿ページに移動する
       visit new_tweet_path
       # フォームに情報を入力する
-      fill_in 'image', with: @tweet_image
+      fill_in 'Image Url', with: @tweet_image
       fill_in 'text', with: @tweet_text
       # 送信するとTweetモデルのカウントが1上がる
       expect{

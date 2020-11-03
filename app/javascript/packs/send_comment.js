@@ -1,14 +1,13 @@
 function send_comment() {
-  const comment_form_button = document.getElementById("button");
+  const comment_form_button = document.getElementById("comment_form_button");
   const comment_form = document.getElementById("comment_form");
-
   comment_form_button.addEventListener("click", (e) => {
     e.preventDefault();
 
     const formData = new FormData(comment_form);
     const XHR = new XMLHttpRequest();
-    const url = location.pathname + "/comment"
-
+    const url = location.pathname + "/comments"
+    
     XHR.open("POST", url, true);
     XHR.responseType = "json";
     XHR.send(formData);
@@ -20,7 +19,7 @@ function send_comment() {
       }
 
       const comment = XHR.response.comment;
-      const name = XHR.response.name;
+      const name = XHR.response.user_name;
       const comments_area = document.getElementsByClassName("comments")[0];
 
       const HTML = `
